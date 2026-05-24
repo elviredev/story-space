@@ -2,13 +2,13 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { links, type Link } from "@/utils/links";
 import { NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 
 const LinksMobile = () => {
     return <DropdownMenu>
         <DropdownMenuTrigger className="lg:hidden">
             <Button variant="outline" size="icon">
-                <Menu />
+                <MenuIcon />
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="lg:hidden min-w-56" align="start" sideOffset={10}>
