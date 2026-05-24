@@ -154,4 +154,7 @@ body {
   .test {
     @apply border-solid border-2 border-black;
   }
+  .align-element {
+    @apply max-w-6xl mx-auto px-8;
+  }
 }
