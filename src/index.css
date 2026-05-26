@@ -95,6 +95,8 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Variables custom */
+  --clr-violet: #86198F;
 }
 
 .dark {
@@ -154,7 +156,12 @@ body {
   .test {
     @apply border-solid border-2 border-black;
   }
+
   .align-element {
     @apply max-w-6xl mx-auto px-8;
+  }
+
+  .section {
+    @apply min-h-screen py-12 max-w-6xl mx-auto px-0 lg:px-8;
   }
 }

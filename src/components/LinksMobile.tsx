@@ -1,16 +1,22 @@
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "./ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { links, type Link } from "@/utils/links";
 import { NavLink } from "react-router-dom";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { MenuIcon } from "lucide-react";
 
 const LinksMobile = () => {
     return <DropdownMenu>
-        <DropdownMenuTrigger className="lg:hidden">
-            <Button variant="outline" size="icon">
-                <MenuIcon />
-            </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger
+            render={
+                <Button
+                    variant="outline"
+                    size="icon"
+                    className="lg:hidden"
+                >
+                    <MenuIcon />
+                </Button>
+            }
+        />
         <DropdownMenuContent className="lg:hidden min-w-56" align="start" sideOffset={10}>
             {links.map((link) => {
                 const { ref, label } = link as Link;
