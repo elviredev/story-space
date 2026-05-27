@@ -24,3 +24,12 @@ export type NewsResponse = {
     previous: string,
     results: News[]
 }
+
+export type FiltersParam = {
+    term?: string
+}
+
+export type NewsResponseWithParams = {
+    response: NewsResponse,
+    params: FiltersParam
+}
