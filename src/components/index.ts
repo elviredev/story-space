@@ -11,3 +11,4 @@ export {default as Overview} from "./Overview";
 export {default as Filters} from "./Filters";
 export {default as FormInput} from "./FormInput";
 export {default as HubblePageCard} from "./HubblePageCard";
+export {default as ApodPlayer} from "./ApodPlayer";

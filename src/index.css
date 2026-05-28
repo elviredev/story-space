@@ -97,6 +97,8 @@ body {
   --sidebar-ring: oklch(0.708 0 0);
   /* Variables custom */
   --clr-violet: #86198F;
+  --clr-violet-light: #D660E0;
+  --clr-disabled: #d6d1d6;
 }
 
 .dark {
@@ -144,6 +146,10 @@ body {
 
   html {
     @apply font-sans;
+  }
+
+  button {
+    @apply cursor-pointer;
   }
 }
 
