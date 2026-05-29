@@ -6,7 +6,7 @@ const NewsCard = ({ news }: { news: News }) => {
     const { image_url, title, news_site, url } = news
 
     return (
-		<Card className="relative h-96 overflow-hidden text-white border-0">
+		<Card className="relative h-96 overflow-hidden text-white border-0 rounded-none">
 			<Link to={url} target="_blank" className="block h-full">
 				<CardHeader className="absolute top-1 left-1 z-10 p-0 capitalize">{news_site}</CardHeader>
 				<CardContent className="h-full w-full p-0">

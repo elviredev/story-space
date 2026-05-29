@@ -16,3 +16,4 @@ export {default as RelatedNews} from "./RelatedNews";
 export {default as NewsCard} from "./NewsCard";
 export {default as WebbTelescopeSummary} from "./WebbTelescopeSummary";
 export {default as ImageCard} from "./ImageCard";
+export {default as RocketCard} from "./RocketCard";

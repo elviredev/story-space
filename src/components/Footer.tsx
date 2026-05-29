@@ -57,7 +57,7 @@ const Footer = (): ReactNode => {
             className="hover:text-gray-300 transition-colors"
           >SpaceX</a>{" | "}
           <a
-            href="https://www.api.spacexdata.com/v3/"
+            href="https://docs.spacexdata.com/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-gray-300 transition-colors"
