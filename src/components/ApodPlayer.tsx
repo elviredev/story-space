@@ -9,7 +9,7 @@ type ApodPlayerProps = {
 }
 
 const ApodPlayer = ({ apod, day, setDay, isLoading }: ApodPlayerProps) => {
-    const { date, explanation, media_type, title, url } = apod
+    const { date, explanation, media_type, service_version, title, url } = apod
 
     const prevHandler = () => {
         setDay((state) => {
@@ -51,7 +51,7 @@ const ApodPlayer = ({ apod, day, setDay, isLoading }: ApodPlayerProps) => {
             <div className="mx-auto w-full my-8">
                 <h2 className="capitalize text-2xl mb-2">{title}</h2>
                 <p className="">{explanation}</p>
-                <p className="capitalize mt-4 text-right">copyright</p>
+                <p className="mt-4 text-right text-gray-400 text-sm">version api:{service_version}</p>
                 <p className="capitalize text-right">{date}</p>
             </div>
         </div>
