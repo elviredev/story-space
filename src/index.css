@@ -178,4 +178,30 @@ body {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5) !important;
   }
+
+  .slider-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    background-color: transparent;
+    transition: all .2s ease-out;
+    background: linear-gradient(to top, white 50%, transparent 50%);
+    background-size: 100% 200%;
+    background-position: top;
+  }
+  .slider-btn:hover {
+    color: black;
+    background-position: bottom;
+  }
+
+  .spacex {
+    background-image: url(./assets/images/spacex.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .webb {
+    background-image: url(./assets/images/telescope-j-webb.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+  }
 }

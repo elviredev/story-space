@@ -8,6 +8,7 @@ import { hubblePageLoader } from './pages/Hubble'
 import { apodPageloader } from './pages/Apod'
 import { webbPageLoader } from './pages/Webb'
 import { spacexPageLoader } from './pages/SpaceX'
+import { landingPageLoader } from './pages/Landing'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     element: <HomeLayout />,
     hydrateFallbackElement: <div>Loading...</div>,
     children: [
-      { index: true, element: <Landing /> },
+      { index: true, element: <Landing />, loader: landingPageLoader, errorElement: <ErrorElement /> },
       { path: "news", element: <News />, loader: newsPageLoader, errorElement: <ErrorElement /> },
       { path: "webb", element: <Webb />, loader: webbPageLoader, errorElement: <ErrorElement /> },
       { path: "spacex", element: <SpaceX />, loader: spacexPageLoader, errorElement: <ErrorElement /> },

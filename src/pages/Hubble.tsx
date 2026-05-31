@@ -44,7 +44,7 @@ const Hubble = () => {
     <Title text="Hubble telescope photos" />
     <Filters term={params.term} mode="hubble" key={params.term} />
     <Overview objects={response} />
-    <CardsGrid objects={response.results} mode="hubble-page" />
+    <CardsGrid objects={response.results} mode="hubble" />
   </section>
 };
 

@@ -7,7 +7,7 @@ import RocketCard from "./RocketCard";
 
 const CardsGrid = ({ objects, mode }: { objects: News[] | HubbleImage[] | WebbImage[] | (Rocket | null)[], mode: string }): ReactNode => {
 
-  if (mode === "hubble-page") {
+  if (mode === "hubble") {
     return (
       <div className="grid gap-2 auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 p-2">
         {(objects as HubbleImage[]).map((item, index) => (
