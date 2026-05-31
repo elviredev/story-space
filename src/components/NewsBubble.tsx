@@ -1,5 +1,4 @@
 import type { News } from "@/utils/types";
-import { Link } from "react-router-dom";
 
 const NewsBubble = ({news}: {news: News}) => {
     const { image_url, title, news_site, url } = news

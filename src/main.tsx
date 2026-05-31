@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { HomeLayout, Landing, News, Webb, SpaceX, Apod, Hubble } from './pages'
+import { HomeLayout, Landing, News, Webb, SpaceX, Apod, Hubble, SingleHubble } from './pages'
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
@@ -9,6 +9,7 @@ import { apodPageloader } from './pages/Apod'
 import { webbPageLoader } from './pages/Webb'
 import { spacexPageLoader } from './pages/SpaceX'
 import { landingPageLoader } from './pages/Landing'
+import { singleHubblePageLoader } from './pages/SingleHubble'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "spacex", element: <SpaceX />, loader: spacexPageLoader, errorElement: <ErrorElement /> },
       { path: "apod", element: <Apod />, loader: apodPageloader, errorElement: <ErrorElement /> },
       { path: "hubble", element: <Hubble />, loader: hubblePageLoader, errorElement: <ErrorElement /> },
+      { path: "hubble/:id", element: <SingleHubble />, loader: singleHubblePageLoader, errorElement: <ErrorElement /> },
     ]
   }
 ])
