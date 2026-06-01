@@ -1,11 +1,12 @@
 import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
+import { objectsPerPage } from "@/utils/constants";
 import { datastroCustomFetch } from "@/utils/customfetch";
 import type { FiltersParam, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types";
 import { useLoaderData, type LoaderFunction } from "react-router-dom";
 
 const hubbleParams = {
   order_by: "photo_date_taken desc",
-  limit: 24
+  limit: objectsPerPage
 }
 
 export const hubblePageLoader: LoaderFunction = async ({ request }): Promise<HubbleImagesResponseWithParams | null> => {
@@ -18,7 +19,7 @@ export const hubblePageLoader: LoaderFunction = async ({ request }): Promise<Hub
     // params qu'on donne a l'appel d'axios - "where" vient de l'api datastro
     const formattedParams = {
       where: params.term ? `photo_title like "${params.term}"` : "",
-      offset: params.page ? 24 * (parseFloat(params.page) - 1) : 0,
+      offset: params.page ? objectsPerPage * (parseFloat(params.page) - 1) : 0,
       ...hubbleParams
     }
 

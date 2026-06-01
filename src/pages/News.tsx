@@ -1,11 +1,12 @@
 import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
+import { objectsPerPage } from "@/utils/constants";
 import { snapiCustomFetch } from "@/utils/customfetch";
 import type { FiltersParam, NewsResponse, NewsResponseWithParams } from "@/utils/types";
 import { useLoaderData, type LoaderFunction } from "react-router-dom";
 
 const newsParams = {
   news_site_exclude: "SpacePolicyOnline.com",
-  limit: 20,
+  limit: objectsPerPage,
   ordering: "-published_at"
 }
 
@@ -21,7 +22,7 @@ export const newsPageLoader: LoaderFunction  = async ({request}): Promise<NewsRe
     const formattedParams = {
       search: params.term ? params.term : "",
       // pour la pagination: 24 elt par page. Si on est sur la page 3 par ex -> offset de 2 et si on est sur la page 1 pas d'offset donc 0
-      offset: params.page ? 24 * (parseFloat(params.page) - 1) : 0,
+      offset: params.page ? objectsPerPage * (parseFloat(params.page) - 1) : 0,
       ...newsParams
     }
 

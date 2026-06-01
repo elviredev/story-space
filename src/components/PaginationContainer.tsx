@@ -3,6 +3,7 @@ import type { HubbleImagesResponseWithParams, NewsResponseWithParams } from "@/u
 import { type ReactNode } from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "./ui/pagination";
+import { objectsPerPage } from "@/utils/constants";
 
 const PaginationContainer = () => {
   // retour du Loader
@@ -14,7 +15,7 @@ const PaginationContainer = () => {
   // récupérer le param "page" si il existe
   const pageFromURL: string | null = searchParams.get("page")
   // nb d'éléments par page
-  const objectsPerPage = 24
+  objectsPerPage
 
   const firstPage = 1
 
