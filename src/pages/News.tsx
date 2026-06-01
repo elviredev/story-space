@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, Overview, Title } from "@/components";
+import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
 import { snapiCustomFetch } from "@/utils/customfetch";
 import type { FiltersParam, NewsResponse, NewsResponseWithParams } from "@/utils/types";
 import { useLoaderData, type LoaderFunction } from "react-router-dom";
@@ -20,6 +20,8 @@ export const newsPageLoader: LoaderFunction  = async ({request}): Promise<NewsRe
     // Params d'entrée qu'on demande
     const formattedParams = {
       search: params.term ? params.term : "",
+      // pour la pagination: 24 elt par page. Si on est sur la page 3 par ex -> offset de 2 et si on est sur la page 1 pas d'offset donc 0
+      offset: params.page ? 24 * (parseFloat(params.page) - 1) : 0,
       ...newsParams
     }
 
@@ -40,14 +42,13 @@ export const newsPageLoader: LoaderFunction  = async ({request}): Promise<NewsRe
 const News = () => {
   const data = useLoaderData() as NewsResponseWithParams
   const { response, params } = data
-  // console.log(response);
-
 
   return <section className="section">
     <Title text="All news" />
     <Filters term={params.term} mode="news" key={params.term} />
     <Overview objects={data} />
     <CardsGrid objects={response.results} mode="news-page" />
+    <PaginationContainer />
   </section>
 };
 

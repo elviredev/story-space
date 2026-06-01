@@ -1,4 +1,4 @@
-import { CardsGrid, Filters, Overview, Title } from "@/components";
+import { CardsGrid, Filters, Overview, PaginationContainer, Title } from "@/components";
 import { datastroCustomFetch } from "@/utils/customfetch";
 import type { FiltersParam, HubbleImagesResponse, HubbleImagesResponseWithParams } from "@/utils/types";
 import { useLoaderData, type LoaderFunction } from "react-router-dom";
@@ -18,6 +18,7 @@ export const hubblePageLoader: LoaderFunction = async ({ request }): Promise<Hub
     // params qu'on donne a l'appel d'axios - "where" vient de l'api datastro
     const formattedParams = {
       where: params.term ? `photo_title like "${params.term}"` : "",
+      offset: params.page ? 24 * (parseFloat(params.page) - 1) : 0,
       ...hubbleParams
     }
 
@@ -45,6 +46,7 @@ const Hubble = () => {
     <Filters term={params.term} mode="hubble" key={params.term} />
     <Overview objects={response} />
     <CardsGrid objects={response.results} mode="hubble" />
+    <PaginationContainer />
   </section>
 };
 

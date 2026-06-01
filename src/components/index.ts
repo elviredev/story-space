@@ -25,3 +25,4 @@ export {default as NewsLauncherHeader} from "./NewsLauncherHeader";
 export {default as NewsLauncherSquaredCards} from "./NewsLauncherSquaredCards";
 export {default as NewsLauncherBubbleCards} from "./NewsLauncherBubbleCards";
 export {default as NewsBubble} from "./NewsBubble";
+export {default as PaginationContainer} from "./PaginationContainer";

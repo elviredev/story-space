@@ -4,7 +4,6 @@ import { Button } from "./ui/button";
 import FormInput from "./FormInput";
 
 const Filters = ({ term, mode }: { term: string | undefined, mode: string }): ReactNode => {
-    console.log(mode);
 
     return (
         <Form className="my-6 p-2 flex flex-col gap-2">
