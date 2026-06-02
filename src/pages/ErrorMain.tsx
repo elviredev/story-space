@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { Button } from "@/components/ui/button";
 import { Link, useRouteError } from "react-router-dom";
 

@@ -21,6 +21,7 @@ export const newsFetch = async (): Promise<News[] | null> => {
     const response = await snapiCustomFetch.get<NewsResponse>("", {params: newsParams})
     return response.data.results
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -31,6 +32,7 @@ export const rocketFetch = async (rocketURL: string): Promise<Rocket | null> => 
     const response = await spacexCustomFetch.get<Rocket>(rocketURL)
     return response.data
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -43,6 +45,7 @@ export const rocketsFetch = async (): Promise<(Rocket | null)[] | null> => {
     )
     return response
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -54,6 +57,7 @@ export const spacexPageLoader: LoaderFunction = async (): Promise<SpaceXNewsAndR
     const [news, rockets] = await Promise.all([newsFetch(), rocketsFetch()])
     return { news, rockets }
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }

@@ -2,7 +2,7 @@ import { ApodPlayer, Title } from "@/components";
 import { nasaCustomFetch } from "@/utils/customfetch";
 import { numberToDate } from "@/utils/functions";
 import type { ApodType } from "@/utils/types";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLoaderData, type LoaderFunction } from "react-router-dom";
 
 
@@ -11,6 +11,7 @@ export const apodPageloader: LoaderFunction = async (): Promise<ApodType | null>
     const response = await nasaCustomFetch.get<ApodType>("");
     return response.data
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -33,17 +34,27 @@ const Apod = () => {
     try {
       const params = { date: numberToDate(day) }
       const response = await nasaCustomFetch.get<ApodType>("", { params })
+
       setData(response.data)  
-      setIsLoading(false)    
     } catch (error) {
+      /* eslint-disable-next-line no-console */
       console.log(error)
-      setIsLoading(false) 
       return null
+    } finally {
+      setIsLoading(false) 
     }
   }
 
+  // empêcher le premier fetch
+  const firstRender = useRef(true)
+
   // chaque fois que le jour va changer on va faire qqchose
   useEffect(() => {
+    if(firstRender.current) {
+      firstRender.current = false
+      return
+    }
+
     fetchApod(day)
   }, [day])
 

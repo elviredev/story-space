@@ -18,5 +18,10 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      "no-console": "error",
+      "react-refresh/only-export-components": "off",
+      "react-hooks/set-state-in-effect": "off",
+    }
   },
 ])

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useRouteError } from "react-router-dom";
 
 /**

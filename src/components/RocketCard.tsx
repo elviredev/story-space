@@ -9,8 +9,8 @@ const RocketCard = ({ rocket, index }: { rocket: Rocket, index: number }) => {
     const { kg } = mass
 
     const getOrderClasses = () => {
-        return index % 2 == 0 
-            ? { header: "md:order-1", content: "md:order-2" } 
+        return index % 2 == 0
+            ? { header: "md:order-1", content: "md:order-2" }
             : { header: "md:order-2", content: "md:order-1" }
     }
 
@@ -31,7 +31,9 @@ const RocketCard = ({ rocket, index }: { rocket: Rocket, index: number }) => {
 
                 <p className="mt-2">Payloads:</p>
                 {payload_weights.map(payload => (
-                    <p>{payload.name}: <span>{payload.kg}</span>kgs</p>
+                    <p key={payload.name}>
+                        {payload.name}: <span>{payload.kg}</span>kgs
+                    </p>
                 ))}
 
                 <p className="mt-2">Engines:</p>

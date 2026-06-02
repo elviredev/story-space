@@ -32,6 +32,7 @@ export const hubblePageLoader: LoaderFunction = async ({ request }): Promise<Hub
       params
     }
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error)
     return null
   }
@@ -40,7 +41,7 @@ export const hubblePageLoader: LoaderFunction = async ({ request }): Promise<Hub
 const Hubble = () => {
   const data = useLoaderData() as HubbleImagesResponseWithParams
   const { response, params } = data
-  console.log(data);
+  // console.log(data);
 
   return <section className="section">
     <Title text="Hubble telescope photos" />

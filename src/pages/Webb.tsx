@@ -20,6 +20,7 @@ export const newsFetch = async (): Promise<News[] | null> => {
     const response = await snapiCustomFetch.get<NewsResponse>("", { params: newsParams })
     return response.data.results
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -30,6 +31,7 @@ export const imageryFetch = async (): Promise<WebbImage[] | null> => {
     const response = await webbCustomFetch.get<WebbImagesResponse>("", { params: imagesParams })
     return response.data.body
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null
   }
@@ -42,6 +44,7 @@ export const webbPageLoader: LoaderFunction = async (): Promise<WebbNewsAndImage
     const [news, imagery] = await Promise.all([newsFetch(), imageryFetch()])
     return { news, imagery }
   } catch (error) {
+    /* eslint-disable-next-line no-console */
     console.log(error);
     return null    
   }

@@ -14,9 +14,7 @@ const PaginationContainer = () => {
 
   // récupérer le param "page" si il existe
   const pageFromURL: string | null = searchParams.get("page")
-  // nb d'éléments par page
-  objectsPerPage
-
+  
   const firstPage = 1
 
   // récupérer la page courante
@@ -70,7 +68,7 @@ const PaginationContainer = () => {
 
   // construire un tableau de DOM elt et le retourner
   const buildContent = (): ReactNode[] => {
-    let pages: ReactNode[] = []
+    const pages: ReactNode[] = []
     // first page
     pages.push(buildBtn({ page: firstPage, isActive: activePage === firstPage }))
     // ellipse (...)
