@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { HomeLayout, Landing, News, Webb, SpaceX, Apod, Hubble, SingleHubble } from './pages'
+import { HomeLayout, Landing, News, Webb, SpaceX, Apod, Hubble, SingleHubble, ErrorMain } from './pages'
 import { newsPageLoader } from './pages/News'
 import { ErrorElement } from './components'
 import { hubblePageLoader } from './pages/Hubble'
@@ -15,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <ErrorMain />,
     hydrateFallbackElement: <div>Loading...</div>,
     children: [
       { index: true, element: <Landing />, loader: landingPageLoader, errorElement: <ErrorElement /> },
