@@ -18,9 +18,9 @@ export const apodPageloader: LoaderFunction = async (): Promise<ApodType | null>
 }
 
 const Apod = () => {
-  const defaultApod = useLoaderData() as ApodType
+  const defaultApod = useLoaderData() as ApodType | null
   // stocker la donnée du apod courant
-  const [data, setData] = useState<ApodType>(defaultApod)
+  //const [data, setData] = useState<ApodType | null>(defaultApod)
   // stocker le nb courant du jour
   const [day, setDay] = useState<number>(0)
   // stocker le chargement de l'image
@@ -35,13 +35,13 @@ const Apod = () => {
       const params = { date: numberToDate(day) }
       const response = await nasaCustomFetch.get<ApodType>("", { params })
 
-      setData(response.data)  
+      setData(response.data)
     } catch (error) {
       /* eslint-disable-next-line no-console */
       console.log(error)
       return null
     } finally {
-      setIsLoading(false) 
+      setIsLoading(false)
     }
   }
 
@@ -50,13 +50,24 @@ const Apod = () => {
 
   // chaque fois que le jour va changer on va faire qqchose
   useEffect(() => {
-    if(firstRender.current) {
+    if (firstRender.current) {
       firstRender.current = false
       return
     }
 
     fetchApod(day)
   }, [day])
+
+  if (!defaultApod) {
+    return (
+      <section className="section">
+        <Title text="NASA's astronomy picture of the day" />
+        <p>Impossible de charger l'image du jour.</p>
+      </section>
+    )
+  }
+  // stocker la donnée du apod courant si il existe
+  const [data, setData] = useState<ApodType>(defaultApod)
 
   return <section className="section">
     <Title text="NASA's astronomy picture of the day" />

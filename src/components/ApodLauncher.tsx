@@ -5,7 +5,14 @@ import { Link, useLoaderData } from "react-router-dom";
 const ApodLauncher = () => {
     const { apod } = useLoaderData() as LandingPageNewsApodHubbles
     if (!apod) {
-        return <>Problem while fetching data</>
+        return (
+            <article className="w-full py-12">
+                <div className="align-element">
+                    <h2>NASA Astronomy Picture of the Day</h2>
+                    <p>Image temporairement indisponible.</p>
+                </div>
+            </article>
+        )
     }
 
     const { date, media_type, title, url } = apod

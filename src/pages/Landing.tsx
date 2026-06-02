@@ -1,6 +1,7 @@
 import { ApodLauncher, HubbleLauncher, NewsLauncher, SpaceXLauncher, WebbLauncher } from "@/components";
 import { datastroCustomFetch, nasaCustomFetch, snapiCustomFetch } from "@/utils/customfetch";
 import type { ApodType, HubbleImage, HubbleImagesResponse, LandingPageNewsApodHubbles, News, NewsResponse } from "@/utils/types";
+import axios from "axios";
 import { type LoaderFunction } from "react-router-dom";
 
 const newsParams = { 
@@ -28,8 +29,10 @@ export const apodFetch = async (): Promise<ApodType | null> => {
     const response = await nasaCustomFetch.get<ApodType>("")
     return response.data
   } catch (error) {
-    /* eslint-disable-next-line no-console */
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      console.log("status:", error.response?.status)
+      console.log("data:", error.response?.data)
+    }
     return null
   }
 }
